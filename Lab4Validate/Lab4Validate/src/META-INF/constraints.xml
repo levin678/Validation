@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<constraint-mappings
+    xmlns="http://jboss.org/xml/ns/javax/validation/mapping"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://jboss.org/xml/ns/javax/validation/mapping/validation-mapping-1.1.xsd"
+    version="1.1">
+  <bean class="ru.miit.lab4validate.PureTrain" ignore-annotations="false">
+    <field name="nomTR">
+      <constraint annotation="javax.validation.constraints.NotNull">
+        <message>Номер для поезда должен быть задан</message>
+      </constraint>
+      <constraint annotation="javax.validation.constraints.Size">
+        <message>Номер для поезда должен быть минимум 10 символо</message>
+        <element name="min">6</element>
+      </constraint>
+    </field>
+    <field name="idPoezd">
+      <constraint annotation="javax.validation.constraints.NotNull">
+        <message>Идентификатор для поезда должен быть задан</message>
+      </constraint>
+      <constraint annotation="javax.validation.constraints.Min">
+        <message>Условная длина для поезда должна быть больше 1 условнго вагона</message>
+        <element name="value">1</element>
+      </constraint>
+    </field>
+    <field name="type">
+      <constraint annotation="javax.validation.constraints.NotNull">
+        <message>Тип поезда должен быть задан</message>
+      </constraint>
+    </field>
+    <field name="npp">
+      <constraint annotation="org.hibernate.validator.constraints.Range">
+        <message>Колличество вагонов не должно быть не меньше 1 и не больше 170</message>
+        <element name="min">1</element>
+        <element name="max">170</element>
+      </constraint>
+    </field>
+    <field name="esrStV">
+      <constraint annotation="javax.validation.constraints.Size">
+        <message>Станция старта для поезда должна быть минимум 6 символов</message>
+        <element name="min">6</element>
+      </constraint>
+    </field>
+    <field name="esrFinV">
+      <constraint annotation="javax.validation.constraints.Size">
+        <message>Станция назначения для вагона должна быть минимум 6 символов</message>
+        <element name="min">6</element>
+      </constraint>
+    </field>
+    <field name="udl">
+      <constraint annotation="javax.validation.constraints.NotNull">
+        <message>Условная длина для вагона должна быть задана</message>
+      </constraint>
+      <constraint annotation="javax.validation.constraints.Min">
+        <message>Условная длина для вагона должна быть больше 1 условнго вагона</message>
+        <element name="value">1</element>
+      </constraint>
+    </field>
+  </bean>
+</constraint-mappings>
+
